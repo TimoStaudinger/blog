@@ -1,7 +1,7 @@
 {
   "version": 2,
   "name": "blog",
-  "alias": ["timostaudinger.com", "tms.sh"],
+  "alias": ["timostaudinger.com", "tms.sh", "timo.codes"],
   "builds": [
     {
       "src": "package.json",
