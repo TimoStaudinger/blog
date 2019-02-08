@@ -53,7 +53,7 @@ class Layout extends React.Component {
     }
     return (
       <StaticQuery
-        query={bioQuery}
+        query={socialQuery}
         render={data => {
           const {
             twitter,
