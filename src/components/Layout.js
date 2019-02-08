@@ -52,24 +52,55 @@ class Layout extends React.Component {
       )
     }
     return (
-      <div
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+      <StaticQuery
+        query={bioQuery}
+        render={data => {
+          const {
+            twitter,
+            github,
+            stackoverflow,
+          } = data.site.siteMetadata.social
+
+          return (
+            <div
+              style={{
+                marginLeft: `auto`,
+                marginRight: `auto`,
+                maxWidth: rhythm(24),
+                padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+              }}
+            >
+              {header}
+              {children}
+              <footer>
+                <a href={`https://twitter.com/${twitter}`}>Twitter</a> ·{' '}
+                <a href={`https://github.com/${github}`}>GitHub</a> ·{' '}
+                <a
+                  href={`https://stackoverflow.com/users/${stackoverflow}?tab=profile`}
+                >
+                  StackOverflow
+                </a>
+              </footer>
+            </div>
+          )
         }}
-      >
-        {header}
-        {children}
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+      />
     )
   }
 }
+
+const socialQuery = graphql`
+  query SocialQuery {
+    site {
+      siteMetadata {
+        social {
+          twitter
+          github
+          stackoverflow
+        }
+      }
+    }
+  }
+`
 
 export default Layout

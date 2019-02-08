@@ -6,6 +6,8 @@ module.exports = {
     siteUrl: `https://timostaudinger.com`,
     social: {
       twitter: `timostaudinger`,
+      github: `TimoSta`,
+      stackoverflow: `3836229`,
     },
   },
   plugins: [
